@@ -19,6 +19,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
         }
 
         /* Фон и стиль заголовка */
@@ -29,6 +30,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             transition: all 0.3s ease-in-out;
             position: relative;
+            z-index: 10;
         }
 
         header h1 {
@@ -59,7 +61,7 @@
             letter-spacing: 2px;
             position: relative;
             display: inline-block;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav a::after {
@@ -75,6 +77,7 @@
 
         nav a:hover {
             color: #ffeb3b;
+            transform: translateY(-5px);
         }
 
         nav a:hover::after {
@@ -90,6 +93,13 @@
             border-radius: 15px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         section:hover {
@@ -111,6 +121,9 @@
         .video-container {
             text-align: center;
             margin-top: 50px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease-in-out;
         }
 
         iframe {
@@ -135,6 +148,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             transition: all 0.3s ease-in-out;
             margin-top: 40px;
+            transform: translateY(10px);
         }
 
         .download-btn:hover {
@@ -148,6 +162,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-in-out;
         }
 
         .feature-card {
@@ -175,6 +192,18 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+        /* Эффект появления элементов при прокрутке */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Отзывы */
         .reviews {
             background-color: #1f1f1f;
@@ -197,6 +226,14 @@
             padding: 20px;
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        .review-card.visible {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .review-card h3 {
@@ -258,33 +295,3 @@
         @media (max-width: 768px) {
             header h1 {
                 font-size: 50px;
-            }
-
-            section h2 {
-                font-size: 32px;
-            }
-
-            .download-btn {
-                font-size: 20px;
-                padding: 15px 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Voidx - Читы для Roblox</h1>
-        <nav>
-            <a href="#about">Описание</a>
-            <a href="#features">Функции</a>
-            <a href="#installation">Установка</a>
-            <a href="#video">Видео</a>
-            <a href="#download">Скачать</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#faq">FAQ</a>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>Что такое Voidx?</h2>
-        <p>Voidx — это один из самых мощных читов для Roblox, который предоставляет игрокам доступ к возможностям, которые недоступны обычным пользователям. С Voidx можно использовать такие функции как авто-кликер,
